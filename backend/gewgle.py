@@ -30,12 +30,15 @@ def getnpages(query,n):
     links = []
     basepage = "https://www.google.com/search?safe=off&q="
     san = urllib.quote(query)
+    ua =random.choice (useragents)
     for i in range(0,n):
-        time.sleep(random.random()*30)
+        time.sleep(random.random()*15)
         url = basepage + san + "&start=" + str(i*10)
-        r = requests.get(url, headers={'User-Agent': random.choice (useragents)})
-        with open("response-mobotix-"+i+".html") as fh:
-            fh.write(r.text)
+        print url
+        r = requests.get(url, headers={'User-Agent': ua})
+        with open("response-mobotix-"+str(i)+".html",'wb') as fh:
+            print "Writing!"
+            fh.write(r.text.encode('utf-8'))
 
 getnpages(search_mobotix,15)
 #getnpages(search_axismjpg,15)
