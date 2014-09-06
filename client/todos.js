@@ -145,8 +145,13 @@ Template.todos.any_list_selected = function () {
   return !Session.equals('list_id', null);
 };
 
+//dealing with the search bar
+/*
+
+
+*/
 Template.todos.events(okCancelEvents(
-  '#new-todo',
+  '#search',
   {
     ok: function (text, evt) {
       var tag = Session.get('tag_filter');

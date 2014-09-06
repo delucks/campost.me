@@ -38,7 +38,7 @@ h3 {
     text-align: center;
 }
 
-#top-tag-filter, #main-pane, #side-pane, #bottom-pane {
+#top-tag-filter, #main-pane, #bottom-pane {
     position: absolute;
     left: 0;
     right: 0;
@@ -144,7 +144,7 @@ h3 {
     width: 180px;
 }
 
-#new-todo-box {
+#search-box{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
@@ -154,7 +154,7 @@ h3 {
     height: 40px;
 }
 
-#new-todo {
+#search{
    position: absolute;
    width: 100%;
 }
@@ -166,7 +166,7 @@ h3 {
 
 #item-list .todo {
     display: block;
-    height:1 50px;
+    height: 350px;
     position: relative;
     overflow: hidden;
     border-top: 1px solid #ccc;
@@ -201,9 +201,6 @@ h3 {
     color: #999;
 }
 
-#item-list .todo:hover .destroy {
-    background: url('/destroy.png') no-repeat 0 0;
-}
 
 #item-list .todo .destroy:hover {
     background-position: 0 -20px;
@@ -244,7 +241,7 @@ h3 {
 
 #item-list .todo .check {
     float: left;
-    width: 25px;
+    width: 25px center;
 }
 
 #item-list .todo .todo-text {
