@@ -1,7 +1,6 @@
 import requests
 import time
 import random
-from bs4 import BeautifulSoup
 import urllib
 
 # categories- mobotix, axismjpg, webcamxp, panamjpg (two searches)
@@ -36,11 +35,12 @@ def getnpages(query,n):
         url = basepage + san + "&start=" + str(i*10)
         print url
         r = requests.get(url, headers={'User-Agent': ua})
+        # change the next line!
         with open("response-mobotix-"+str(i)+".html",'wb') as fh:
             print "Writing!"
             fh.write(r.text.encode('utf-8'))
 
-getnpages(search_mobotix,15)
+#getnpages(search_mobotix,15)
 #getnpages(search_axismjpg,15)
 #getnpages(search_webcamxp,15)
 #getnpages(search_panamjpg,15)
