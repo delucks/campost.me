@@ -8,7 +8,7 @@
   </div>
 
   <div id="main-pane">
-    {{> todos}}
+    {{> cams}}
   </div>
 
 </body>
@@ -16,7 +16,7 @@
 <template name="lists">
 </template>
 
-<template name="todos">
+<template name="cams">
     <div id="items-view">
       {{#if loading}}
         Loading...
@@ -25,19 +25,19 @@
           <input type="text" id="search" placeholder="Search for Webcams" />
         </div>
         <ul id="item-list">
-          {{#each todos}}
-            {{> todo_item}}
+          {{#each cams}}
+            {{> cam_item}}
           {{/each}}
         </ul>
       {{/if}}
     </div>
 </template>
 
-<template name="todo_item">
-  <li class="todo {{done_class}}">
+<template name="cam_item">
+  <li class="cam">
       <div class="display">
         <input class="check" name="markdone" type="checkbox" checked={{done}} />
-        <div class="todo-text">{{text}}</div>
+        <div class="cam-text">{{text}}</div>
       </div>
     <div class="item-tags">
       {{#each tag_objs}}
