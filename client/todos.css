@@ -47,6 +47,11 @@ h3 {
     overflow: hidden;
 }
 
+#loginBtn {
+    text-align: right;
+    padding: 8px;
+}
+
 #top-tag-filter {
     left: 0px;
     height: 44px;
