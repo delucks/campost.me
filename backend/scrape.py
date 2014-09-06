@@ -5,6 +5,8 @@ import time
 import requests
 import Queue
 import threading
+import cv2
+import numpy
 
 # don't kill me google
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36"
@@ -52,15 +54,24 @@ def checksite(site,category):
 def capturesite(site,category):
     if (category == "mobotix"):
         url = site.replace("/control/userimage.html","/record/current.jpg")
-    outfolder = "."
-    filename = int(time.time())
-    outpath = os.path.join(outfolder,filename)
-    urllib.urlretrieve(url, outpath)
+        outfolder = "."
+        filename = int(time.time())
+        outpath = os.path.join(outfolder,filename)
+        urllib.urlretrieve(url, outpath)
+    elif (category == "axismjpg"):
+        r = requests.get(site, headers=headers)
+        rootsoup = BeautifulSoup(r.text)
+        print rootsoup.prettify()
+        # url = rootsoup.find("frame")
+        # print url
 
 search_mobotix = "inurl:/control/userimage.html"
+search_axismjpg = "inurl:/view/index.shtml axis"
 
 test_mobotix = "http://www.videovalvonta.fi"
+test_axismjpg = "http://axis-78tramore.axiscam.net/view/viewer_index.shtml"
 
-stuff = getnpages(search_mobotix,3)
-for item in stuff:
-    print checksite(item,"mobotix")
+#stuff = getnpages(search_mobotix,3)
+#for item in stuff:
+#    print checksite(item,"mobotix")
+capturesite(test_axismjpg,"axismjpg")
