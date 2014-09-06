@@ -31,7 +31,7 @@ def getnpages(query,n):
 
 def checksite(site,category):
     # checks for the category, if not, it attempts a HTTP request and checks the error code
-    if (category == "mbotix"):
+    if (category == "mobotix"):
         url = site.replace("/control/userimage.html","/record/current.jpg")
         #print url
         #r = requests.get(url,headers=headers)
@@ -50,17 +50,17 @@ def checksite(site,category):
             return False
 
 def capturesite(site,category):
-    if (category == "mbotix"):
+    if (category == "mobotix"):
         url = site.replace("/control/userimage.html","/record/current.jpg")
     outfolder = "."
     filename = int(time.time())
     outpath = os.path.join(outfolder,filename)
     urllib.urlretrieve(url, outpath)
 
-search_mbotix = "inurl:/control/userimage.html"
+search_mobotix = "inurl:/control/userimage.html"
 
-test_mbotix = "http://www.videovalvonta.fi"
+test_mobotix = "http://www.videovalvonta.fi"
 
-stuff = getnpages(search_mbotix,3)
+stuff = getnpages(search_mobotix,3)
 for item in stuff:
-    print checksite(item,"mbotix")
+    print checksite(item,"mobotix")
