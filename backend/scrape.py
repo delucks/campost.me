@@ -1,11 +1,13 @@
 from bs4 import BeautifulSoup
 from mjpegtools import MjpegParser
 import os
+import Queue
 import urllib
 import time
 import requests
 import pymongo
 import GeoIP
+import threading
 import socket
 
 #########
@@ -188,7 +190,9 @@ def scrapequeue(dorktype,queue):
         search = search_panamjpg1
     else:
         search = search_mobotix #default
-    for item in getnpages(search,PAGE_AMOUNT):
+    print search
+    for item in getnpages(search,15):
+        dp("Inserting "+item+" into the queue.")
         queue.put(item)
 
 # thread-safe worker that will process each page in the queue
@@ -200,7 +204,7 @@ def scrapeWorker(queue,threadID,dorktype,mongoc,geoip):
         try:
             url = queue.get(False)
             dp(threadID+" starting " + url)
-            if not linkexists(url):
+            if not linkexists(url,mongoc):
                 dp(threadID+" db ok    " + url)
                 if checksite(url,dorktype):
                     dp(threadID+" site ok  " + url)
@@ -220,17 +224,18 @@ def scrapeWorker(queue,threadID,dorktype,mongoc,geoip):
 
 # general setup
 gip = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
-mc = MongoClient('localhost',3001)
+mc = pymongo.MongoClient('127.0.0.1',3001)
 mdb = mc.meteor
 
 # set up the queue for scraping (temporary, for testing purposes)
-q = Queue.Queue()
-scrapequeue("mobotix",q)
-for i in range(10):
-    t = threading.Thread(target=scrapeWorker, args = (q,str(i),"mobotix",mdb['cams'],gip))
-    t.start()
+#q = Queue.Queue()
+#scrapequeue("mobotix",q)
+#for i in range(10):
+#    t = threading.Thread(target=scrapeWorker, args = (q,str(i),"mobotix",mdb['cams'],gip))
+#    t.start()
 
-#stuff = getnpages(search_panamjpg,2)
-#for item in stuff:
-#    #print checksite(item,"axismjpg")
-#    capturesite(item,"panamjpg")
+stuff = getnpages(search_panamjpg,3)
+for item in stuff:
+    print "foo"
+    print checksite(item,"panamjpg")
+    #capturesite(item,"panamjpg")
