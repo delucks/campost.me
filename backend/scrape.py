@@ -60,7 +60,10 @@ def scrapegs(url):
 # query used to be the actual google query but fuck google so it's now the dork! :D
 def getnpages(query,n):
     # add in pages manually here
-    if query == "axismjpg":
+    if query == "direct":
+        links = [ "http://wwc.instacam.com/instacamimg/FRSTB/FRSTB_l.jpg","http://wwc.instacam.com/instacamimg/ANNPS/ANNPS_l.jpg","http://wwc.instacam.com/instacamimg/ANNEA/ANNEA_l.jpg","http://wwc.instacam.com/instacamimg/BLMRE/BLMRE_l.jpg","http://wwc.instacam.com/instacamimg/BLTND/BLTND_l.jpg","http://wwc.instacam.com/instacamimg/BLTPR/BLTPR_l.jpg","http://wwc.instacam.com/instacamimg/BLTDC/BLTDC_l.jpg","http://wwc.instacam.com/instacamimg/OWNHS/OWNHS_l.jpg","http://wwc.instacam.com/instacamimg/PLTMR/PLTMR_l.jpg","http://wwc.instacam.com/instacamimg/RSTRT/RSTRT_l.jpg","http://wwc.instacam.com/instacamimg/BLLRT/BLLRT_l.jpg","http://wwc.instacam.com/instacamimg/TWSNC/TWSNC_l.jpg","http://wwc.instacam.com/instacamimg/CHSRL/CHSRL_l.jpg","http://wwc.instacam.com/instacamimg/MNCMG/MNCMG_l.jpg","http://wwc.instacam.com/instacamimg/MTAIR/MTAIR_l.jpg","http://wwc.instacam.com/instacamimg/MRNNG/MRNNG_l.jpg","http://wwc.instacam.com/instacamimg/SFDRK/SFDRK_l.jpg","http://wwc.instacam.com/instacamimg/IJAMS/IJAMS_l.jpg","http://wwc.instacam.com/instacamimg/MIDTN/MIDTN_l.jpg","http://wwc.instacam.com/instacamimg/FRMDD/FRMDD_l.jpg","http://wwc.instacam.com/instacamimg/SWNTN/SWNTN_l.jpg","http://wwc.instacam.com/instacamimg/BLRAI/BLRAI_l.jpg","http://wwc.instacam.com/instacamimg/HVRDG/HVRDG_l.jpg","http://wwc.instacam.com/instacamimg/ELLPH/ELLPH_l.jpg","http://wwc.instacam.com/instacamimg/GLNLG/GLNLG_l.jpg","http://wwc.instacam.com/instacamimg/PTMCR/PTMCR_l.jpg","http://wwc.instacam.com/instacamimg/MZTGM/MZTGM_l.jpg","http://wwc.instacam.com/instacamimg/AWSHQ/AWSHQ_l.jpg","http://wwc.instacam.com/instacamimg/GRMCG/GRMCG_l.jpg","http://wwc.instacam.com/instacamimg/PTOMC/PTOMC_l.jpg","http://wwc.instacam.com/instacamimg/RCRCH/RCRCH_l.jpg","http://wwc.instacam.com/instacamimg/RCKMC/RCKMC_l.jpg","http://wwc.instacam.com/instacamimg/SNDYS/SNDYS_l.jpg","http://wwc.instacam.com/instacamimg/SDYSP/SDYSP_l.jpg","http://wwc.instacam.com/instacamimg/LRSTV/LRSTV_l.jpg","http://wwc.instacam.com/instacamimg/NJMOY/NJMOY_l.jpg","http://wwc.instacam.com/instacamimg/HGNTC/HGNTC_l.jpg","http://wwc.instacam.com/instacamimg/OCNPP/OCNPP_l.jpg","http://wwc.instacam.com/instacamimg/MRNNG/MRNNG_l.jpg","http://wwc.instacam.com/instacamimg/WSHWJ/WSHWJ_l.jpg","http://wwc.instacam.com/instacamimg/WSHCN/WSHCN_l.jpg","http://wwc.instacam.com/instacamimg/WSHNP/WSHNP_l.jpg","http://wwc.instacam.com/instacamimg/ALXCM/ALXCM_l.jpg","http://wwc.instacam.com/instacamimg/ALXXD/ALXXD_l.jpg","http://wwc.instacam.com/instacamimg/BURKK/BURKK_l.jpg","http://wwc.instacam.com/instacamimg/CHJML/CHJML_l.jpg","http://wwc.instacam.com/instacamimg/FRFXN/FRFXN_l.jpg","http://wwc.instacam.com/instacamimg/FRFXA/FRFXA_l.jpg","http://wwc.instacam.com/instacamimg/GRTFL/GRTFL_l.jpg","http://wwc.instacam.com/instacamimg/MNSMF/MNSMF_l.jpg","http://wwc.instacam.com/instacamimg/RSTFM/RSTFM_l.jpg","http://wwc.instacam.com/instacamimg/RCCMN/RCCMN_l.jpg","http://wwc.instacam.com/instacamimg/VCHMN/VCHMN_l.jpg","http://wwc.instacam.com/instacamimg/VBBAY/VBBAY_l.jpg","http://wwc.instacam.com/instacamimg/GTTYS/GTTYS_l.jpg","http://wwc.instacam.com/instacamimg/WSTCH/WSTCH_l.jpg","http://wwc.instacam.com/instacamimg/CHWTR/CHWTR_l.jpg","http://wwc.instacam.com/instacamimg/HRSHY/HRSHY_l.jpg","http://wwc.instacam.com/instacamimg/OXFPG/OXFPG_l.jpg","http://wwc.instacam.com/instacamimg/PHLDM/PHLDM_l.jpg","http://wwc.instacam.com/instacamimg/MGNWL/MGNWL_l.jpg","http://wwc.instacam.com/instacamimg/RBBPH/RBBPH_l.jpg" ]
+        return links
+    elif query == "axismjpg":
         links = [ "http://webcam.uoregon.edu/en/index.html","http://wc2.dartmouth.edu/view/index.shtml" ]
     else:
         links = [ "http://webcam.uoregon.edu/en/index.html" ]
@@ -175,22 +178,9 @@ def capturesite(site,dorktype,postid):
             # not a valid image file
             os.unlink(outpath)
             return False 
-        #r = urllib.urlopen(site) #requests.get(site, headers=headers)
-        #varpath = ""
-        #for line in r.readlines():
-        #    if "var imagepath" in line:
-        #        varpath = line.split("\"")[1] # dirty hack to get the relative path to the mjpg
-        #if varpath is not "":
-        #    url = "http://"+site.split("/")[2]+varpath
-        #    mj = MjpegParser(url)
-        #    try:
-        #        im = mj.serve()
-        #        with open(outpath,'wb') as filename:
-        #            filename.write(im.as_image().read())
-        #        return True
-        #    except AttributeError:
-        #        pass # mjpegparser can fuck up its __init__() on occasion. it still works.
-        #        return False
+    elif (dorktype == "direct"):
+        urllib.urlretrieve(site,outpath)
+        return True
     elif (dorktype == "webcamxp"):
         url = site + "/cam_1.jpg"
         urllib.urlretrieve(url, outpath)
@@ -270,23 +260,10 @@ def uniq(array):
 
 # builds a queue of pages to be checked and scraped
 def scrapequeue(dorktype,queue):
-    if dorktype == "mobotix":
-        search = search_mobotix
-    elif dorktype == "axismjpg":
-        search = search_axismjpg
-    elif dorktype == "webcamxp":
-        search = search_webcamxp
-    elif dorktype == "panamjpg":
-        search = search_panamjpg
-    elif dorktype == "panamjpg_1":
-        search = search_panamjpg_1
-    else:
-        search = search_mobotix #default
     dp("Searching: "+dorktype)
     for item in uniq(getnpages(dorktype,14)):
         dp("Inserting "+item+" into the queue.")
         queue.put(item)
-    dp("")
 
 # thread-safe worker that will process each page in the queue
 # params: queue to pull from, threadID for debugging, dorktype so we know what to process
@@ -324,7 +301,7 @@ mdb = mc.meteor
 
 # set up the queue for scraping (temporary, for testing purposes)
 q = Queue.Queue()
-dork = "panamjpg"
+dork = "direct"
 scrapequeue(dork,q)
 for i in range(numthreads):
     t = threading.Thread(target=scrapeWorker, args = (q,str(i),dork,mdb['cams'],gip))

@@ -166,7 +166,7 @@ Template.cam_item.events({
     }, 300);
   }
   
-  'click .
+  //'click .
 });
 
 Template.cam_item.events(okCancelEvents(
