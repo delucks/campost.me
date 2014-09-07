@@ -39,8 +39,9 @@
 <template name="cam_item">
   <li class="cam">
       <div class="display">
-        <input class="check" name="markdone" type="checkbox" checked={{done}} />
-        <div class="cam-text">{{text}}</div>
+        <input class="vote" src="/defUpVote.png" type="image" value=""/>
+	<br>
+        <input class="vote" src="/defDownVote.png" type="image" value=""/>
       </div>
     <div class="item-tags">
       {{#each tag_objs}}

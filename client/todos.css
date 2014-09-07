@@ -238,3 +238,10 @@ h3 {
     width: 80px;
 }
 
+.vote
+{
+    top: 25%;
+    position: relative; 
+    height: 60px;
+    outline: none;
+}
