@@ -36,7 +36,8 @@
   <li class="cam">
       <div class="display">
 	<div class = "cam-text">{{text}}</div>
-       {{>likes}} 
+       {{>uplike}}
+       {{>downlike}} 
       </div>
     <div class="item-tags">
       {{#each tag_objs}}
@@ -69,7 +70,14 @@
   </div>
 </template>
 
-<template name = "likes">
+<template name = "uplike">
+  <div id = "uplike" class = "vote">
+    <input class="vote" src="/defUpVote.png" type="image" value="" onClick = "onVote()"/>
+  </div>
+</template>
 
-
+<template name = "downlike">
+  <div id = "downlike" class = "vote">
+    <input class="vote" src="/defDownVote.png" type="image" value="" onClick = "onVote()"/>
+  </div>
 </template>
