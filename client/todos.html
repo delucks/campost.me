@@ -35,9 +35,10 @@
 <template name="cam_item">
   <li class="cam">
       <div class="display">
-	<div class = "cam-text">{{text}}</div>
+				<div class = "cam-text"><a id="butts" href="{{url}}">{{text}}</a></div>
        {{>uplike}}
        {{>downlike}} 
+			 {{>postimg}}
       </div>
     <div class="item-tags">
       {{#each tag_objs}}
@@ -68,6 +69,12 @@
       </div>
     {{/each}}
   </div>
+</template>
+
+<template name = "postimg">
+	<div id = "postimg">
+		<img href="/{{md5}}/latest.jpg"/>
+	</div>
 </template>
 
 <template name = "uplike">

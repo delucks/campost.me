@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from mjpegtools import MjpegParser
 from PIL import Image
+import hashlib
 import os
 import errno
 import Queue
@@ -147,11 +148,12 @@ def checksite(site,dorktype):
             return False
 
 # utility method, saves a frame of the website to a path generated using 'id'. should return a boolean describing the success of the operation. we'll see how that turns out
-def capturesite(site,dorktype,postid):
+def capturesite(site,dorktype,md5):
     # set up the path
     outfolder = "public"
-    subfolder = str(postid)
-    filename = str(int(time.time())) + ".jpg"
+    subfolder = str(md5)
+    filename = "latest.jpg"
+    #TODO: if it is already a file move it to old.jpg
     # first make the dir for the post if it doesn't exist
     idpath = os.path.join(outfolder,subfolder)
     try:
@@ -238,9 +240,11 @@ def insert(url,user,dorktype,mongoc,geoip):
    #    raise SystemExit
    tags = []
    location = geoip.country_name_by_name(addr) # sure, it's by name, but it takes addresses too! have an open mind
+   md5 = hashlib.md5(url).hexdigest()
    if user is None:
        user = "staff"
    record = {"url": url,
+           "md5": md5,
            "text": str(addr),
            "up": 1,
            "down": 0,
@@ -250,7 +254,8 @@ def insert(url,user,dorktype,mongoc,geoip):
            "dateLast": current,
            "userid": user,
            "softwareType": dorktype}
-   return mongoc.insert(record)
+   mongoc.insert(record)
+   return md5
 
 def uniq(array):
     d = {}
@@ -278,9 +283,9 @@ def scrapeWorker(queue,threadID,dorktype,mongoc,geoip):
                 dp(threadID+" db ok    " + url)
                 if checksite(url,dorktype):
                     dp(threadID+" site ok  " + url)
-                    postid = insert(url,None,dorktype,mongoc,geoip)
-                    dp(threadID+" inserted " + str(postid))
-                    success = capturesite(url,dorktype,postid)
+                    md5 = insert(url,None,dorktype,mongoc,geoip)
+                    dp(threadID+" inserted " + md5)
+                    success = capturesite(url,dorktype,md5)
                     if not success:
                         #mongoc.remove(postid)
                         dp(threadID+" imaging failed.")
