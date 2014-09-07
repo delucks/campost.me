@@ -91,7 +91,7 @@ Template.cams.cams = function () {
   if (tag_filter)
     sel.tags = tag_filter;
   var searchs = document.getElementById('search');
-  if (searchs) {
+  if (searchs && searchs.value != '') {
     searchs = searchs.value;
     return Cams.find({ 'text':{'$regex':searchs}}, {sort: {timestamp: 1}});
   }
