@@ -235,8 +235,11 @@ h3 {
 }
 
 .imagebuddy {
-	height: auto;
 	width: auto;
+	padding: 5px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	float: left;
 }
 
 .vote
