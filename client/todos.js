@@ -76,7 +76,11 @@ Template.cams.events(okCancelEvents(
   '#search',
   {
     ok: function (text, evt) {
-      //do stuff -----var tag = Session.get('tag_filter');
+      //do stuff -----var tag = Session.get('tag_filter'); 
+    if (Session.equals('tag_filter', this.tag))
+      Session.set('tag_filter', null);
+    else
+      Session.set('tag_filter', this.tag);
     }
   }));
 
@@ -86,7 +90,11 @@ Template.cams.cams = function () {
   var tag_filter = Session.get('tag_filter');
   if (tag_filter)
     sel.tags = tag_filter;
-
+  var searchs = document.getElementById('search');
+  if (searchs) {
+    searchs = searchs.value;
+    return Cams.find({ 'text':{'$regex':searchs}}, {sort: {timestamp: 1}});
+  }
   return Cams.find(sel, {sort: {timestamp: 1}});
 };
 
@@ -148,8 +156,6 @@ Template.cam_item.events(okCancelEvents(
     ok: function (value) {
       Cams.update(this._id, {$set: {text: value}});
       Session.set('editing_itemname', null);
-    },
-    cancel: function () {
       Session.set('editing_itemname', null);
     }
   }));
