@@ -5,13 +5,13 @@ Cams = new Mongo.Collection("cams");
 
 
 Cams.allow({
-  insert: function (userId, cam) {
+  insert: function () {
     return true; // no cowboy inserts -- use createParty method
   },
-  update: function (userId, cam, fields, modifier) {
+  update: function () {
     return true;
   },
-  remove: function (userId, party) {
+  remove: function () {
     // You can only remove parties that you created and nobody is going to.
     return true;
   }
@@ -171,7 +171,10 @@ Template.cam_item.events({
   },
 
   'click .votedown': function () {
-    alert('up');
+    var id = this.cam_id;
+    Meteor.setTimeout(function () {
+      Cams.update({_id: id}, {$inc: {up: -1}});
+    }, 300);
   }
 
 });
