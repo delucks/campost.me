@@ -242,10 +242,28 @@ h3 {
 	float: left;
 }
 
-.vote
-{
-  top: 25%;
+.votedown input {
+  top: 50%;
+	padding-left: 25px;
   position: relative;
-  height: 60px;
+  max-height: 120px;
+  max-width: 120px;
   outline: none;
+}
+
+.voteup input {
+  top: 30%;
+	padding-top: 25px;
+	padding-left: 25px;
+  position: relative;
+  max-height: 120px;
+  max-width: 120px;
+  outline: none;
+}
+
+.likenumber {
+	position: absolute;
+	bottom: 0px;
+	float: left;
+	padding: 5px;
 }

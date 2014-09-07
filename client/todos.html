@@ -1,5 +1,6 @@
 <head>
   <title>The Campost</title>
+	<link rel="icon" href="/favicon.ico">
 </head>
 
 <body>
@@ -35,11 +36,12 @@
 <template name="cam_item">
   <li class="cam">
       <div class="display">
-				<div class = "cam-text"><a id="butts" href="{{url}}">{{text}}</a></div>
+				<div class = "cam-text"><a id="butts" href="{{url}}">{{text}} - {{location}}</a></div>
        {{>uplike}}
        {{>downlike}} 
-			 {{>postimg}}
+			 <div class="likenumber">+{{up}} votes</div>
       </div>
+			 {{>postimg}}
     <div class="item-tags">
       {{#each tag_objs}}
         <div class="tag removable_tag">
@@ -79,12 +81,12 @@
 
 <template name = "uplike">
   <div id = "uplike" class = "voteup">
-    <input class="voteup" src="/defUpVote.png" type="image" value="" />
+    <input class="vote" src="/defUpVote.png" type="image" value="" />
   </div>
 </template>
 
 <template name = "downlike">
   <div id = "downlike" class = "votedown">
-    <input class="votedown" src="/defDownVote.png" type="image" value=""/>
+    <input class="vote" src="/defDownVote.png" type="image" value=""/>
   </div>
 </template>
