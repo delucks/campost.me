@@ -2,23 +2,20 @@
 
 // Define Minimongo collections to match server/publish.js.
 Cams = new Mongo.Collection("cams");
- 
+
+
 Cams.allow({
   insert: function (userId, cam) {
     return true; // no cowboy inserts -- use createParty method
   },
   update: function (userId, cam, fields, modifier) {
-    if (userId !== cam.userid)
-      return false; // not the owner
-
     return true;
   },
   remove: function (userId, party) {
     // You can only remove parties that you created and nobody is going to.
-    return false;
+    return true;
   }
 });
-
 
 // Name of currently selected tag for filtering
 Session.setDefault('tag_filter', null);
@@ -164,9 +161,19 @@ Template.cam_item.events({
     Meteor.setTimeout(function () {
       Cams.update({_id: id}, {$pull: {tags: tag}});
     }, 300);
-  }
+  },
   
-  //'click .
+  'click .voteup': function () {
+    var id = this.cam_id;
+    Meteor.setTimeout(function () {
+      Cams.update({_id: id}, {$inc: {up: 1}});
+    }, 300);
+  },
+
+  'click .votedown': function () {
+    alert('up');
+  }
+
 });
 
 Template.cam_item.events(okCancelEvents(
