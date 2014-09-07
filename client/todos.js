@@ -76,14 +76,7 @@ Template.cams.events(okCancelEvents(
   '#search',
   {
     ok: function (text, evt) {
-      var tag = Session.get('tag_filter');
-      Cams.insert({
-        text: text,
-        done: false,
-        timestamp: (new Date()).getTime(),
-        tags: tag ? [tag] : []
-      });
-      evt.target.value = '';
+      //do stuff -----var tag = Session.get('tag_filter');
     }
   }));
 
@@ -204,7 +197,7 @@ Template.tag_filter.tag_text = function () {
 Template.tag_filter.selected = function () {
   return Session.equals('tag_filter', this.tag) ? 'selected' : '';
 };
-/*
+
 Template.tag_filter.events({
   'mousedown .tag': function () {
     if (Session.equals('tag_filter', this.tag))
@@ -215,9 +208,6 @@ Template.tag_filter.events({
 });
 
 ////////// Tracking selected list in URL //////////
-
-Ruouter = new CamsRouter;
-*/
 Meteor.startup(function () {
-  Backbone.history.start({pushState: true});
+  //Backbone.history.start({pushState: true});
 });
