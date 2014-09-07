@@ -234,14 +234,11 @@ h3 {
     margin-left: 35px;
 }
 
-#edittag-input {
-    width: 80px;
-}
 
 .vote
 {
-    top: 25%;
-    position: relative; 
-    height: 60px;
-    outline: none;
+  top: 25%;
+  position: relative;
+  height: 60px;
+  outline: none;
 }

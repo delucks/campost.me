@@ -13,11 +13,7 @@
   <div id="main-pane">
     {{> cams}}
   </div>
-
 </body>
-
-<template name="lists">
-</template>
 
 <template name="cams">
     <div id="items-view">
@@ -39,9 +35,9 @@
 <template name="cam_item">
   <li class="cam">
       <div class="display">
-	<div class = "cam-text">{{text}} </div>
-	{{>uplike}}	
-	{{>downlike}}
+	<div class = "cam-text">{{text}}</div>
+       {{>uplike}}
+       {{>downlike}} 
       </div>
     <div class="item-tags">
       {{#each tag_objs}}
@@ -76,12 +72,12 @@
 
 <template name = "uplike">
   <div id = "uplike" class = "vote">
-    <input class="vote" src="/defUpVote.png" type="image" value=""/>
+    <input class="vote" src="/defUpVote.png" type="image" value="" onClick = "onVote()"/>
   </div>
 </template>
 
 <template name = "downlike">
   <div id = "downlike" class = "vote">
-    <input class="vote" src="/defDownVote.png" type="image" value=""/>
+    <input class="vote" src="/defDownVote.png" type="image" value="" onClick = "onVote()"/>
   </div>
 </template>

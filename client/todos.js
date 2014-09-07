@@ -237,7 +237,6 @@ Meteor.startup(function () {
   //Backbone.history.start({pushState: true});
 });
 
-
-////////Uplikes and Downlikes//////////
+////////Ups and Downs//////////
 
 
