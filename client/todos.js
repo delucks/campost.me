@@ -163,15 +163,16 @@ Template.cam_item.events({
     }, 300);
   },
   
-  'click .voteup': function () {
-    var id = this.cam_id;
+  'click .voteup': function (evt) {
+    var id = this._id;
+
     Meteor.setTimeout(function () {
       Cams.update({_id: id}, {$inc: {up: 1}});
     }, 300);
   },
 
-  'click .votedown': function () {
-    var id = this.cam_id;
+  'click .votedown': function (evt) {
+    var id = this._id;
     Meteor.setTimeout(function () {
       Cams.update({_id: id}, {$inc: {up: -1}});
     }, 300);
