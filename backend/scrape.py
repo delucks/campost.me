@@ -306,7 +306,7 @@ mdb = mc.meteor
 
 # set up the queue for scraping (temporary, for testing purposes)
 q = Queue.Queue()
-dork = "direct"
+dork = "mobotix"
 scrapequeue(dork,q)
 for i in range(numthreads):
     t = threading.Thread(target=scrapeWorker, args = (q,str(i),dork,mdb['cams'],gip))
